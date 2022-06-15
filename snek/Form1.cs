@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Drawing.Imaging; // for JPG compressor
+
 namespace snek
 {
     public partial class Form1 : Form
@@ -85,6 +87,35 @@ namespace snek
 
         private void TakeSnapShot(object sender, EventArgs e)
         {
+            Label caption = new Label();
+            caption.Text = "I scored " + score + " and my Highscore is " + highScore + " in the snake game";
+            caption.Font = new Font("Ariel", 12, FontStyle.Bold);
+            caption.ForeColor = Color.Orange;
+            caption.AutoSize = false;
+            caption.Width = picCanvas.Width;
+            caption.Height = 30;
+            caption.TextAlign = ContentAlignment.MiddleCenter;
+            picCanvas.Controls.Add(caption);
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.FileName = "Snake Game SnapShot";
+            dialog.DefaultExt = "jpg";
+            dialog.Filter = "JPG Image File | *.jpg";
+            dialog.ValidateNames = true;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                int width = Convert.ToInt32(picCanvas.Width);
+                int height = Convert.ToInt32(picCanvas.Height);
+                Bitmap bmp = new Bitmap(width, height);
+                picCanvas.DrawToBitmap(bmp, new Rectangle(0,0, width, height));
+                bmp.Save(dialog.FileName, ImageFormat.Jpeg);
+                picCanvas.Controls.Remove(caption);
+            }
+
+
+
+
 
         }
 
