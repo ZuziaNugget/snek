@@ -40,6 +40,7 @@
             // 
             // picCanvas
             // 
+            this.picCanvas.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.picCanvas.Location = new System.Drawing.Point(12, 12);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(603, 701);

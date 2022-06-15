@@ -90,12 +90,109 @@ namespace snek
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
+            // setting the directions
+
+            if (goLeft)
+            {
+                Settings.directions = "left";
+            }
+            if (goRight)
+            {
+                Settings.directions = "right";
+            }
+            if (goDown)
+            {
+                Settings.directions = "down";
+            }
+            if (goUp)
+            {
+                Settings.directions = "up";
+            }
+            // end of directions
+
+            for (int i = Snake.Count - 1; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+
+                    switch (Settings.directions)
+                    {
+                        case "left":
+                            Snake[i].X--;
+                            break;
+                        case "right":
+                            Snake[i].X++;
+                            break;
+                        case "down":
+                            Snake[i].Y++;
+                            break;
+                        case "up":
+                            Snake[i].Y--;
+                            break;
+                    }
+
+                    if(Snake[i].X < 0)
+                    {
+                        Snake[i].X = maxWidth;
+                    }
+                    if (Snake[i].X > maxWidth)
+                    {
+                        Snake[i].X = 0;
+                    }
+                    if (Snake[i].Y < 0)
+                    {
+                        Snake[i].Y = maxHeight;
+                    }
+                    if (Snake[i].Y > maxHeight)
+                    {
+                        Snake[i].Y = 0;
+                    }
+
+                }
+                else
+                {
+                    Snake[i].X = Snake[i - 1].X;
+                    Snake[i].Y = Snake[i - 1].Y;
+                }
+            }
+
+
+            picCanvas.Invalidate();
 
         }
 
         private void UpdatePictureBoxGraphics(object sender, PaintEventArgs e)
         {
+            Graphics canvas = e.Graphics;
 
+            Brush snakeColour;
+
+            for (int i = 0; i < Snake.Count; i++)
+            {
+                if(i == 0)
+                {
+                    snakeColour = Brushes.Black;
+                }
+                else
+                {
+                    snakeColour = Brushes.DarkGreen;
+                }
+
+                canvas.FillEllipse(snakeColour, new Rectangle
+                    (
+                    Snake[i].X * Settings.Width,
+                    Snake[i].Y * Settings.Height,
+                    Settings.Width, Settings.Height
+                    ));
+            }
+
+
+            canvas.FillEllipse(Brushes.DarkRed, new Rectangle
+            (
+            food.X * Settings.Width,
+            food.Y * Settings.Height,
+            Settings.Width, Settings.Height
+            ));
         }
 
         private void RestartGame()
@@ -110,10 +207,10 @@ namespace snek
             score = 0;
             txtScore.Text = "Score: " + score;
 
-            Circle head = new Circle { X = 10, Y = 5 };
+            Circle head = new Circle();
             Snake.Add(head); // adding the head part of the snake to the list
 
-            for (int i = 0; 1 < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Circle body = new Circle();
                 Snake.Add(body);
@@ -128,7 +225,7 @@ namespace snek
 
         private void EatFood()
         {
-
+ 
         }
 
         private void GameOver()
