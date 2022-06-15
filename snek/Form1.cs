@@ -41,5 +41,27 @@ namespace snek
         {
 
         }
+
+        private void UpdatePictureBoxGraphics(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void RestartGame()
+        {
+
+        }
+
+        private void EatFood()
+        {
+
+        }
+
+        private void GameOver()
+        {
+
+        }
+
+
     }
 }
