@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picCanvas = new System.Windows.Forms.PictureBox();
             this.txtScore = new System.Windows.Forms.Label();
             this.txtHighScore = new System.Windows.Forms.Label();
             this.StartButton = new System.Windows.Forms.Button();
             this.SnapButton = new System.Windows.Forms.Button();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // picCanvas
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(603, 701);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePictureBoxGraphics);
+            this.picCanvas.Location = new System.Drawing.Point(12, 12);
+            this.picCanvas.Name = "picCanvas";
+            this.picCanvas.Size = new System.Drawing.Size(603, 701);
+            this.picCanvas.TabIndex = 0;
+            this.picCanvas.TabStop = false;
+            this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePictureBoxGraphics);
             // 
             // txtScore
             // 
@@ -98,12 +98,12 @@
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.txtHighScore);
             this.Controls.Add(this.txtScore);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picCanvas);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,7 +111,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picCanvas;
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Label txtHighScore;
         private System.Windows.Forms.Button StartButton;
