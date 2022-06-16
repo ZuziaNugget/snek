@@ -35,7 +35,9 @@
             this.StartButton = new System.Windows.Forms.Button();
             this.SnapButton = new System.Windows.Forms.Button();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.bTop = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bTop)).BeginInit();
             this.SuspendLayout();
             // 
             // picCanvas
@@ -90,6 +92,15 @@
             // 
             this.gameTimer.Tick += new System.EventHandler(this.GameTimerEvent);
             // 
+            // bTop
+            // 
+            this.bTop.Location = new System.Drawing.Point(12, 12);
+            this.bTop.Name = "bTop";
+            this.bTop.Size = new System.Drawing.Size(603, 701);
+            this.bTop.TabIndex = 5;
+            this.bTop.TabStop = false;
+            this.bTop.Tag = "Object";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,11 +111,13 @@
             this.Controls.Add(this.txtHighScore);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.picCanvas);
+            this.Controls.Add(this.bTop);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bTop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,6 +131,7 @@
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button SnapButton;
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.PictureBox bTop;
     }
 }
 

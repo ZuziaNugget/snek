@@ -9,3 +9,14 @@ C:\Users\Zuzanna\Desktop\Cursusen\Schoolprojecten\snek\snek\obj\Debug\snek.cspro
 C:\Users\Zuzanna\Desktop\Cursusen\Schoolprojecten\snek\snek\obj\Debug\snek.csproj.CoreCompileInputs.cache
 C:\Users\Zuzanna\Desktop\Cursusen\Schoolprojecten\snek\snek\obj\Debug\snek.exe
 C:\Users\Zuzanna\Desktop\Cursusen\Schoolprojecten\snek\snek\obj\Debug\snek.pdb
+C:\Users\NovaFoxy\Source\Repos\snek\snek\bin\Debug\snek.exe.config
+C:\Users\NovaFoxy\Source\Repos\snek\snek\bin\Debug\snek.exe
+C:\Users\NovaFoxy\Source\Repos\snek\snek\bin\Debug\snek.pdb
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.csproj.AssemblyReference.cache
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.csproj.SuggestedBindingRedirects.cache
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.Form1.resources
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.Properties.Resources.resources
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.csproj.GenerateResource.cache
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.csproj.CoreCompileInputs.cache
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.exe
+C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.pdb

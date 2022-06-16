@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,6 +141,34 @@ namespace snek
                 Settings.directions = "up";
             }
             // end of directions
+
+            //Borders
+
+            foreach(Control x in this.Controls)
+            {
+                if(x is PictureBox && (string)x.Tag == "Object")
+                {
+                    if (Snake.First().X == 604)
+                    {
+                        GameOver();
+                    }
+                    if (Snake.First().Y == 700)
+                    {
+                        GameOver();
+                    }
+                    if (Snake.First().X == 0)
+                    {
+                        GameOver();
+                    }
+                    if (Snake.First().Y == 0)
+                    {
+                        GameOver();
+                    }
+
+                }
+            }
+
+            //EndBorders
 
             for (int i = Snake.Count - 1; i >= 0; i--)
             {
@@ -294,6 +323,7 @@ namespace snek
             gameTimer.Stop();
             StartButton.Enabled = true;
             SnapButton.Enabled = true;
+            
 
             if (score > highScore)
             {
