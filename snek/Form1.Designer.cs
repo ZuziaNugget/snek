@@ -35,9 +35,13 @@
             this.StartButton = new System.Windows.Forms.Button();
             this.SnapButton = new System.Windows.Forms.Button();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            this.bTop = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bTop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // picCanvas
@@ -45,7 +49,7 @@
             this.picCanvas.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.picCanvas.Location = new System.Drawing.Point(12, 12);
             this.picCanvas.Name = "picCanvas";
-            this.picCanvas.Size = new System.Drawing.Size(603, 701);
+            this.picCanvas.Size = new System.Drawing.Size(603, 695);
             this.picCanvas.TabIndex = 0;
             this.picCanvas.TabStop = false;
             this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePictureBoxGraphics);
@@ -70,9 +74,9 @@
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(621, 12);
+            this.StartButton.Location = new System.Drawing.Point(634, 12);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(115, 55);
+            this.StartButton.Size = new System.Drawing.Size(102, 55);
             this.StartButton.TabIndex = 3;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
@@ -80,9 +84,9 @@
             // 
             // SnapButton
             // 
-            this.SnapButton.Location = new System.Drawing.Point(621, 73);
+            this.SnapButton.Location = new System.Drawing.Point(634, 73);
             this.SnapButton.Name = "SnapButton";
-            this.SnapButton.Size = new System.Drawing.Size(115, 55);
+            this.SnapButton.Size = new System.Drawing.Size(102, 55);
             this.SnapButton.TabIndex = 4;
             this.SnapButton.Text = "Snap";
             this.SnapButton.UseVisualStyleBackColor = true;
@@ -92,32 +96,62 @@
             // 
             this.gameTimer.Tick += new System.EventHandler(this.GameTimerEvent);
             // 
-            // bTop
+            // panel1
             // 
-            this.bTop.Location = new System.Drawing.Point(12, 12);
-            this.bTop.Name = "bTop";
-            this.bTop.Size = new System.Drawing.Size(603, 701);
-            this.bTop.TabIndex = 5;
-            this.bTop.TabStop = false;
-            this.bTop.Tag = "Object";
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(12, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(603, 10);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Location = new System.Drawing.Point(12, 700);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(603, 10);
+            this.panel2.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Location = new System.Drawing.Point(604, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(11, 707);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(10, 707);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 725);
+            this.ClientSize = new System.Drawing.Size(754, 712);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.SnapButton);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.txtHighScore);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.picCanvas);
-            this.Controls.Add(this.bTop);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bTop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,7 +165,10 @@
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button SnapButton;
         private System.Windows.Forms.Timer gameTimer;
-        private System.Windows.Forms.PictureBox bTop;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

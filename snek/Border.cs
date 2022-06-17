@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace snek
 {
-    class Circle
+    class Border
     {
         public int X { get; set; }
         public int Y { get; set; }
-        
 
-        public Circle()
+        public Border()
         {
-            X = 18;
-            Y = 21;
-        }
 
+        }
 
     }
 }

@@ -17,6 +17,7 @@ namespace snek
     {
 
         private List<Circle> Snake = new List<Circle>();
+        private List<Border> Border = new List<Border>();
         private Circle food = new Circle();
 
         int maxWidth;
@@ -88,16 +89,6 @@ namespace snek
 
         private void TakeSnapShot(object sender, EventArgs e)
         {
-            Label caption = new Label();
-            caption.Text = "I scored " + score + " and my Highscore is " + highScore + " in the snake game";
-            caption.Font = new Font("Ariel", 12, FontStyle.Bold);
-            caption.ForeColor = Color.Orange;
-            caption.AutoSize = false;
-            caption.Width = picCanvas.Width;
-            caption.Height = 30;
-            caption.TextAlign = ContentAlignment.MiddleCenter;
-            picCanvas.Controls.Add(caption);
-
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.FileName = "Snake Game SnapShot";
             dialog.DefaultExt = "jpg";
@@ -111,7 +102,6 @@ namespace snek
                 Bitmap bmp = new Bitmap(width, height);
                 picCanvas.DrawToBitmap(bmp, new Rectangle(0,0, width, height));
                 bmp.Save(dialog.FileName, ImageFormat.Jpeg);
-                picCanvas.Controls.Remove(caption);
             }
 
 
@@ -142,7 +132,7 @@ namespace snek
             }
             // end of directions
 
-            //Borders
+         /*   //Borders
 
             foreach(Control x in this.Controls)
             {
@@ -166,7 +156,7 @@ namespace snek
                     }
 
                 }
-            }
+            } */
 
             //EndBorders
 
@@ -224,6 +214,26 @@ namespace snek
 
                     }
 
+                    for (int t = 1; t < Border.Count; t++)
+                    {
+
+                        if (Snake[i].X == Border[t].X)
+                        {
+                            GameOver();
+                        }
+
+                    }
+
+                    for (int l = 1; l < Border.Count; l++)
+                    {
+
+                        if (Snake[i].Y == Border[l].Y)
+                        {
+                            GameOver();
+                        }
+
+                    }
+
 
                 }
                 else
@@ -272,6 +282,11 @@ namespace snek
             ));
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void RestartGame()
         {
             maxWidth = picCanvas.Width / Settings.Width - 1;
@@ -284,13 +299,37 @@ namespace snek
             score = 0;
             txtScore.Text = "Score: " + score;
 
-            Circle head = new Circle { X = 10, Y = 5};
+            Circle head = new Circle { X = 18, Y = 21};
             Snake.Add(head); // adding the head part of the snake to the list
 
             for (int i = 0; i < 10; i++)
             {
                 Circle body = new Circle();
                 Snake.Add(body);
+            }
+
+            for (int t = 1; t < 10; t++)
+            {
+                Border border = new Border { X = 0};
+                Border.Add(border);
+            }
+
+            for (int t = 1; t < 10; t++)
+            {
+                Border border = new Border { X = 36};
+                Border.Add(border);
+            }
+
+            for (int l = 1; l < 10; l++)
+            {
+                Border border = new Border { Y = 0};
+                Border.Add(border);
+            }
+
+            for (int l = 1; l < 10; l++)
+            {
+                Border border = new Border { Y = 42};
+                Border.Add(border);
             }
 
             food = new Circle { X = rand.Next(2, maxWidth), Y = rand.Next(2, maxHeight) };
