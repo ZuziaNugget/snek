@@ -1,4 +1,16 @@
-﻿namespace snek
+﻿
+
+
+
+
+
+
+
+
+
+
+
+namespace snek
 {
     partial class Form1
     {
