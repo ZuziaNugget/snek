@@ -1,15 +1,4 @@
 ﻿
-
-
-
-
-
-
-
-
-
-
-
 namespace snek
 {
     partial class Form1
@@ -47,6 +36,10 @@ namespace snek
             this.StartButton = new System.Windows.Forms.Button();
             this.SnapButton = new System.Windows.Forms.Button();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.panelBottom = new System.Windows.Forms.Panel();
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.panelRight = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +48,10 @@ namespace snek
             this.picCanvas.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.picCanvas.Location = new System.Drawing.Point(12, 12);
             this.picCanvas.Name = "picCanvas";
-            this.picCanvas.Size = new System.Drawing.Size(603, 701);
+            this.picCanvas.Size = new System.Drawing.Size(602, 698);
             this.picCanvas.TabIndex = 0;
             this.picCanvas.TabStop = false;
+            this.picCanvas.Click += new System.EventHandler(this.picCanvas_Click);
             this.picCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.UpdatePictureBoxGraphics);
             // 
             // txtScore
@@ -80,9 +74,9 @@ namespace snek
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(621, 12);
+            this.StartButton.Location = new System.Drawing.Point(634, 12);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(115, 55);
+            this.StartButton.Size = new System.Drawing.Size(102, 55);
             this.StartButton.TabIndex = 3;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
@@ -90,9 +84,9 @@ namespace snek
             // 
             // SnapButton
             // 
-            this.SnapButton.Location = new System.Drawing.Point(621, 73);
+            this.SnapButton.Location = new System.Drawing.Point(634, 73);
             this.SnapButton.Name = "SnapButton";
-            this.SnapButton.Size = new System.Drawing.Size(115, 55);
+            this.SnapButton.Size = new System.Drawing.Size(102, 55);
             this.SnapButton.TabIndex = 4;
             this.SnapButton.Text = "Snap";
             this.SnapButton.UseVisualStyleBackColor = true;
@@ -102,11 +96,47 @@ namespace snek
             // 
             this.gameTimer.Tick += new System.EventHandler(this.GameTimerEvent);
             // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelTop.Location = new System.Drawing.Point(12, 3);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(599, 10);
+            this.panelTop.TabIndex = 5;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelBottom.Location = new System.Drawing.Point(12, 700);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(599, 10);
+            this.panelBottom.TabIndex = 6;
+            // 
+            // panelLeft
+            // 
+            this.panelLeft.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelLeft.Location = new System.Drawing.Point(3, 3);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Size = new System.Drawing.Size(10, 707);
+            this.panelLeft.TabIndex = 7;
+            // 
+            // panelRight
+            // 
+            this.panelRight.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelRight.Location = new System.Drawing.Point(604, 3);
+            this.panelRight.Name = "panelRight";
+            this.panelRight.Size = new System.Drawing.Size(10, 707);
+            this.panelRight.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 725);
+            this.Controls.Add(this.panelRight);
+            this.Controls.Add(this.panelLeft);
+            this.Controls.Add(this.panelBottom);
+            this.Controls.Add(this.panelTop);
             this.Controls.Add(this.SnapButton);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.txtHighScore);
@@ -130,6 +160,10 @@ namespace snek
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button SnapButton;
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.Panel panelLeft;
+        private System.Windows.Forms.Panel panelRight;
     }
 }
 
