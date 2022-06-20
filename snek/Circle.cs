@@ -14,8 +14,8 @@ namespace snek
 
         public Circle()
         {
-            X = 0;
-            Y = 0;
+            X = 18;
+            Y = 21;
         }
 
 

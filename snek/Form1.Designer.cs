@@ -45,7 +45,7 @@ namespace snek
             // 
             // picCanvas
             // 
-            this.picCanvas.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.picCanvas.BackColor = System.Drawing.Color.NavajoWhite;
             this.picCanvas.Location = new System.Drawing.Point(12, 12);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(602, 698);
@@ -74,22 +74,24 @@ namespace snek
             // 
             // StartButton
             // 
+            this.StartButton.BackColor = System.Drawing.Color.Orange;
             this.StartButton.Location = new System.Drawing.Point(634, 12);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(102, 55);
             this.StartButton.TabIndex = 3;
             this.StartButton.Text = "Start";
-            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.UseVisualStyleBackColor = false;
             this.StartButton.Click += new System.EventHandler(this.StartGame);
             // 
             // SnapButton
             // 
+            this.SnapButton.BackColor = System.Drawing.Color.Orange;
             this.SnapButton.Location = new System.Drawing.Point(634, 73);
             this.SnapButton.Name = "SnapButton";
             this.SnapButton.Size = new System.Drawing.Size(102, 55);
             this.SnapButton.TabIndex = 4;
             this.SnapButton.Text = "Snap";
-            this.SnapButton.UseVisualStyleBackColor = true;
+            this.SnapButton.UseVisualStyleBackColor = false;
             this.SnapButton.Click += new System.EventHandler(this.TakeSnapShot);
             // 
             // gameTimer
@@ -98,7 +100,7 @@ namespace snek
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelTop.BackColor = System.Drawing.Color.Orange;
             this.panelTop.Location = new System.Drawing.Point(12, 3);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(599, 10);
@@ -106,7 +108,7 @@ namespace snek
             // 
             // panelBottom
             // 
-            this.panelBottom.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelBottom.BackColor = System.Drawing.Color.Orange;
             this.panelBottom.Location = new System.Drawing.Point(12, 700);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(599, 10);
@@ -114,7 +116,7 @@ namespace snek
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelLeft.BackColor = System.Drawing.Color.Orange;
             this.panelLeft.Location = new System.Drawing.Point(3, 3);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(10, 707);
@@ -122,7 +124,7 @@ namespace snek
             // 
             // panelRight
             // 
-            this.panelRight.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelRight.BackColor = System.Drawing.Color.Orange;
             this.panelRight.Location = new System.Drawing.Point(604, 3);
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(10, 707);
@@ -132,6 +134,7 @@ namespace snek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(748, 725);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelLeft);

@@ -18,6 +18,7 @@ namespace snek
         private List<Circle> Snake = new List<Circle>();
         private List<Border> Border = new List<Border>();
         private Circle food = new Circle();
+        private Label gameOverLabel = new Label();
 
         int maxWidth;
         int maxHeight;
@@ -83,6 +84,7 @@ namespace snek
 
         private void StartGame(object sender, EventArgs e)
         {
+            gameOverLabel.Hide();
             RestartGame();
         }
 
@@ -91,11 +93,11 @@ namespace snek
             Label caption = new Label();
             caption.Text = "I scored " + score + " and my Highscore is " + highScore + " in the snake game";
             caption.Font = new Font("Ariel", 12, FontStyle.Bold);
-            caption.ForeColor = Color.Orange;
+            caption.ForeColor = Color.SeaGreen;
             caption.AutoSize = false;
             caption.Width = picCanvas.Width;
-            caption.Height = 30;
-            caption.TextAlign = ContentAlignment.MiddleCenter;
+            caption.Height = 100;
+            caption.TextAlign = ContentAlignment.BottomCenter;
             picCanvas.Controls.Add(caption);
 
             SaveFileDialog dialog = new SaveFileDialog();
@@ -113,7 +115,15 @@ namespace snek
                 bmp.Save(dialog.FileName, ImageFormat.Jpeg);
                 picCanvas.Controls.Remove(caption);
             }
-
+            else
+            {
+                int width = Convert.ToInt32(picCanvas.Width);
+                int height = Convert.ToInt32(picCanvas.Height);
+                Bitmap bmp = new Bitmap(width, height);
+                picCanvas.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                bmp.Save(dialog.FileName, ImageFormat.Jpeg);
+                picCanvas.Controls.Remove(caption);
+            }
 
 
 
@@ -262,11 +272,11 @@ namespace snek
             {
                 if(i == 0)
                 {
-                    snakeColour = Brushes.Black;
+                    snakeColour = Brushes.SeaGreen;
                 }
                 else
                 {
-                    snakeColour = Brushes.DarkGreen;
+                    snakeColour = Brushes.DarkSeaGreen;
                 }
 
                 canvas.FillEllipse(snakeColour, new Rectangle
@@ -278,7 +288,7 @@ namespace snek
             }
 
 
-            canvas.FillEllipse(Brushes.DarkRed, new Rectangle
+            canvas.FillEllipse(Brushes.DarkOrange, new Rectangle
             (
             food.X * Settings.Width,
             food.Y * Settings.Height,
@@ -293,6 +303,7 @@ namespace snek
 
         private void RestartGame()
         {
+
             maxWidth = picCanvas.Width / Settings.Width - 1;
             maxHeight = picCanvas.Height / Settings.Height - 1;
 
@@ -303,7 +314,7 @@ namespace snek
             score = 0;
             txtScore.Text = "Score: " + score;
 
-            Circle head = new Circle { X = 10, Y = 5};
+            Circle head = new Circle { X = 18, Y = 21};
             Snake.Add(head); // adding the head part of the snake to the list
 
             for (int i = 0; i < 10; i++)
@@ -364,6 +375,17 @@ namespace snek
         private void GameOver()
         {
             gameTimer.Stop();
+
+            gameOverLabel.Text = "Game Over";
+            gameOverLabel.Font = new Font("Ariel", 36, FontStyle.Bold);
+            gameOverLabel.ForeColor = Color.SeaGreen;
+            picCanvas.Controls.Add(gameOverLabel);
+            gameOverLabel.TextAlign = ContentAlignment.TopCenter;
+            gameOverLabel.AutoSize = false;
+            gameOverLabel.Width = picCanvas.Width;
+            gameOverLabel.Height = 70;
+            gameOverLabel.Show();
+
             StartButton.Enabled = true;
             SnapButton.Enabled = true;
 
