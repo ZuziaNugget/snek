@@ -19,6 +19,9 @@ namespace snek
         private List<Border> Border = new List<Border>();
         private Circle food = new Circle();
         private Label gameOverLabel = new Label();
+        private bool gamePauzed = false;
+
+
 
         int maxWidth;
         int maxHeight;
@@ -132,133 +135,150 @@ namespace snek
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-            // setting the directions
 
-            if (goLeft)
+            if (gamePauzed == false)
             {
-                Settings.directions = "left";
-            }
-            if (goRight)
-            {
-                Settings.directions = "right";
-            }
-            if (goDown)
-            {
-                Settings.directions = "down";
-            }
-            if (goUp)
-            {
-                Settings.directions = "up";
-            }
-            // end of directions
+                // setting the directions
 
-            //Borders
+                if (goLeft)
+                {
+                    Settings.directions = "left";
+                }
+                if (goRight)
+                {
+                    Settings.directions = "right";
+                }
+                if (goDown)
+                {
+                    Settings.directions = "down";
+                }
+                if (goUp)
+                {
+                    Settings.directions = "up";
+                }
+                // end of directions
 
-            /*           foreach (Control x in this.Controls)
-                       {
-                           if (x is PictureBox && (string)x.Tag == "Object")
+                //Borders
+
+                /*           foreach (Control x in this.Controls)
                            {
-                              if (Snake.First().X == 599)
+                               if (x is PictureBox && (string)x.Tag == "Object")
                                {
-                                   GameOver();
-                               }
-                               if (Snake.First().Y == 691)
-                               {
-                                   GameOver();
-                               } 
-                               if (Snake.First().X == 0)
-                               {
-                                   GameOver();
-                               }
-                               if (Snake.First().Y == 0)
-                               {
-                                   GameOver();
-                               }
+                                  if (Snake.First().X == 599)
+                                   {
+                                       GameOver();
+                                   }
+                                   if (Snake.First().Y == 691)
+                                   {
+                                       GameOver();
+                                   } 
+                                   if (Snake.First().X == 0)
+                                   {
+                                       GameOver();
+                                   }
+                                   if (Snake.First().Y == 0)
+                                   {
+                                       GameOver();
+                                   }
 
-                           }
-                       }*/
+                               }
+                           }*/
 
-            //EndBorders
+                //EndBorders
 
-            for (int i = Snake.Count - 1; i >= 0; i--)
-            {
-                if (i == 0)
+                for (int i = Snake.Count - 1; i >= 0; i--)
                 {
-
-                    switch (Settings.directions)
-                    {
-                        case "left":
-                            Snake[i].X--;
-                            break;
-                        case "right":
-                            Snake[i].X++;
-                            break;
-                        case "down":
-                            Snake[i].Y++;
-                            break;
-                        case "up":
-                            Snake[i].Y--;
-                            break;
-                    }
-
-                    if(Snake[i].X < 0)
-                    {
-                        Snake[i].X = maxWidth;
-                    }
-                    if (Snake[i].X > maxWidth)
-                    {
-                        Snake[i].X = 0;
-                    }
-                    if (Snake[i].Y < 0)
-                    {
-                        Snake[i].Y = maxHeight;
-                    }
-                    if (Snake[i].Y > maxHeight)
-                    {
-                        Snake[i].Y = 0;
-                    }
-
-
-                    if (Snake[i].X == food.X && Snake[i].Y == food.Y)
-                    {
-                        EatFood();
-                    }
-
-                    for (int j = 1; j < Snake.Count; j++)
+                    if (i == 0)
                     {
 
-                        if (Snake[i].X == Snake[j].X && Snake[i].Y == Snake[j].Y)
+                        switch (Settings.directions)
                         {
-                            GameOver();
+                            case "left":
+                                Snake[i].X--;
+                                break;
+                            case "right":
+                                Snake[i].X++;
+                                break;
+                            case "down":
+                                Snake[i].Y++;
+                                break;
+                            case "up":
+                                Snake[i].Y--;
+                                break;
                         }
 
-                    }
-
-                    for (int t = 1; t < Border.Count; t++) 
-                    { 
-                        if (Snake[i].X == Border[t].X)
+                        if (Snake[i].X < 0)
                         {
-                            GameOver();
+                            Snake[i].X = maxWidth;
+                        }
+                        if (Snake[i].X > maxWidth)
+                        {
+                            Snake[i].X = 0;
+                        }
+                        if (Snake[i].Y < 0)
+                        {
+                            Snake[i].Y = maxHeight;
+                        }
+                        if (Snake[i].Y > maxHeight)
+                        {
+                            Snake[i].Y = 0;
+                        }
+
+
+                        if (Snake[i].X == food.X && Snake[i].Y == food.Y)
+                        {
+                            gamePauzed = true;
+                            Form2 form2 = new Form2();
+                            form2.gameForm = this;
+                            
+
+                            if (form2.ShowDialog() == DialogResult.OK)
+
+                            {
+                                gamePauzed = false;
+                            }
+                            
+
+
+                        }
+
+                        for (int j = 1; j < Snake.Count; j++)
+                        {
+
+                            if (Snake[i].X == Snake[j].X && Snake[i].Y == Snake[j].Y)
+                            {
+                                GameOver();
+                            }
+
+                        }
+
+                        for (int t = 1; t < Border.Count; t++)
+                        {
+                            if (Snake[i].X == Border[t].X)
+                            {
+                                GameOver();
+                            }
+                        }
+
+                        for (int l = 1; l < Border.Count; l++)
+                        {
+                            if (Snake[i].Y == Border[l].Y)
+                            {
+                                GameOver();
+                            }
                         }
                     }
-
-                    for (int l = 1; l < Border.Count; l++)
+                    else
                     {
-                        if (Snake[i].Y == Border[l].Y)
-                        {
-                            GameOver();
-                        }
+                        Snake[i].X = Snake[i - 1].X;
+                        Snake[i].Y = Snake[i - 1].Y;
                     }
                 }
-                else
-                {
-                    Snake[i].X = Snake[i - 1].X;
-                    Snake[i].Y = Snake[i - 1].Y;
-                }
+
+
+                picCanvas.Invalidate(); 
             }
 
-
-            picCanvas.Invalidate();
 
         }
 
@@ -297,6 +317,11 @@ namespace snek
         }
 
         private void picCanvas_Click(object sender, EventArgs e)
+        {
+            gamePauzed = !gamePauzed;
+        }
+
+        private void ShouldPauze()
         {
 
         }
@@ -354,7 +379,7 @@ namespace snek
 
         }
 
-        private void EatFood()
+        public void EatFood()
         {
             score += 1;
 
@@ -367,6 +392,18 @@ namespace snek
             };
 
             Snake.Add(body);
+
+            food = new Circle { X = rand.Next(2, maxWidth), Y = rand.Next(2, maxHeight) };
+
+        }
+
+        public void PoopFood()
+        {
+            score -= 1;
+
+            txtScore.Text = "Score: " + score;
+
+            Snake.RemoveAt(Snake.Count - 1);
 
             food = new Circle { X = rand.Next(2, maxWidth), Y = rand.Next(2, maxHeight) };
 

@@ -20,3 +20,4 @@ C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.csproj.GenerateResource.
 C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.csproj.CoreCompileInputs.cache
 C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.exe
 C:\Users\NovaFoxy\Source\Repos\snek\snek\obj\Debug\snek.pdb
+C:\Users\Zuzanna\Desktop\Cursusen\Schoolprojecten\snek\snek\obj\Debug\snek.Form2.resources

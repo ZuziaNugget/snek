@@ -158,7 +158,7 @@ namespace snek
         #endregion
 
         private System.Windows.Forms.PictureBox picCanvas;
-        private System.Windows.Forms.Label txtScore;
+        public System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Label txtHighScore;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button SnapButton;
