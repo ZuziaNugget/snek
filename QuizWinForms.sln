@@ -1,0 +1,268 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace QuizWinForms
+{
+    public partial class Form1 : Form
+    {
+
+        // quiz game variables
+
+        int correctAnswer;
+        int questionNumber = 1;
+        int score;
+        int wrongAnswer;
+        int percentage;
+        int totalQuestions;
+
+        
+        
+        public Form1()
+        {
+            InitializeComponent();
+
+            askQuestion(1);
+
+            totalQuestions = 10;
+
+            wrongAnswer = 1;
+        }
+
+        private void checkAnswerEvent(object sender, EventArgs e)
+        {
+            var senderObject = (Button)sender;
+
+            int buttonTag = Convert.ToInt32(senderObject.Tag);
+
+            if (buttonTag == correctAnswer)
+            {
+                score++;
+            }
+
+            if (questionNumber == totalQuestions)
+            {
+                // work out the percentage 
+
+                percentage = (int)Math.Round((double)(score * 100) / totalQuestions);
+
+
+                MessageBox.Show(
+                    "Quiz Ended!" + Environment.NewLine +
+                    "You have answered " + score + "questions correcelty" + Environment.NewLine +
+                    "Your total percentage is " + percentage + "%" + Environment.NewLine +
+                    "Click OK to play again"
+                    );
+
+                score = 0;
+                questionNumber = 0;
+                askQuestion(questionNumber);
+
+            }
+
+
+            if (buttonTag == correctAnswer)
+            {
+                MessageBox.Show("You answerd right");
+            }
+
+            else if (wrongAnswer == wrongAnswer)
+            {
+                MessageBox.Show("You answerd wrong");
+            }
+
+
+
+
+            questionNumber++;
+            askQuestion(questionNumber);
+        }
+        private void askQuestion(int qnum)
+        {
+
+
+
+            switch (qnum)
+            {
+               case 1:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Hoe belangrijk is een schrijfstijl voor je code?";
+
+                    button1.Text = "Belangrijk";
+                    button2.Text = "Niet zo belangrijk";
+                    button3.Text = "I don't know";
+                    button4.Text = "I don't care";
+
+                    correctAnswer = 1;
+                
+
+                    break;
+                case 2:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Wat is een goeie manier voor 'print'?";
+
+                    button1.Text = "console.Writeline();";
+                    button2.Text = "Console.writeline();";
+                    button3.Text = "Console.Writeline();";
+                    button4.Text = "Console.WriteLine();";
+
+                    correctAnswer = 4;
+
+                    break;
+                case 3:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Wat is de grootste fout bij programeren?";
+
+                    button1.Text = "niet goed afgesloten [;]";
+                    button2.Text = "Niet Object georienteerd progameren";
+                    button3.Text = "Niet na checken voor type fouten";
+                    button4.Text = "De fout is pride";
+
+                    correctAnswer = 3;
+
+                    break;
+                case 4:
+                    pictureBox1.Image = Properties.Resources.Question; 
+
+
+
+                    lblQuestion.Text = "Wat is de makkelijkste taal om te leren?";
+
+                    button1.Text = "HTML + CSS";
+                    button2.Text = "PHP";
+                    button3.Text = "Javascript";
+                    button4.Text = "C#";
+
+                    correctAnswer = 1;
+
+                    break;
+                case 5:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Welk programma voor het programeren is het beste?";
+
+                    button1.Text = "Note++";
+                    button2.Text = "Visual Studio Code";
+                    button3.Text = "Visual Studio";
+                    button4.Text = "Sublime";
+
+                    correctAnswer = 3;
+
+                    break;
+                case 6:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Wat is de leukste drama moment op school?";
+
+                    button1.Text = "Niet gamen";
+                    button2.Text = "2 mensen gingen in de harde regen naar buiten";
+                    button3.Text = "Minecraft server drama (Meerdere keren)";
+                    button4.Text = "Challenge 1 drama";
+
+                    correctAnswer = 3;
+
+                    break;
+                case 7:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Hoeveel procent van de leerlingen speelt spellen tijdens de les?";
+
+                    button1.Text = "10%";
+                    button2.Text = "200%";
+                    button3.Text = "60%";
+                    button4.Text = "75%";
+
+                    correctAnswer = 3;
+
+                    break;
+                case 8:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Wat was de leukste challenge?";
+
+                    button1.Text = "Pokedex";
+                    button2.Text = "Max Verstappen";
+                    button3.Text = "Certified Secure";
+                    button4.Text = "GPS-tocht";
+
+                    correctAnswer = 0;
+
+                    break;
+                case 9:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Hoeveel probleem kinderen hebben wij in deze opleiding";
+
+                    button1.Text = "6-10";
+                    button2.Text = "4-6";
+                    button3.Text = "Probleem Children come from a other World";
+                    button4.Text = "yes";
+
+                    correctAnswer = 1;
+
+                    break;
+                case 10:
+                    pictureBox1.Image = Properties.Resources.Question;
+
+
+
+                    lblQuestion.Text = "Hoeveel breakdowns waren er dit schooljaar?";
+
+                    button1.Text = "50-75";
+                    button2.Text = "200+";
+                    button3.Text = "Unknown";
+                    button4.Text = "Infinite";
+
+                    correctAnswer = 0;
+
+                    break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
